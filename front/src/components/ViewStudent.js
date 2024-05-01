@@ -61,21 +61,20 @@ console.log(data,"data")
           <table id='users' className='table'>
             <thead>
               <tr className='p-2'>
-                <th>Image</th>
+                {/* <th>Image</th> */}
                 <th>Name</th>
-                {/* <th>Surname</th>
-                <th>FaherName</th>
+                <th>Surname</th>
+                {/* <th>FaherName</th>
                 <th>Dob.</th>
-                <th>Gender</th>
+                <th>Gender</th> */}
                 <th>Mobile No.</th>
-                <th>Wp No.</th>
+                {/* <th>Wp No.</th>
                 <th>Father No.</th>
                 <th>Address</th>
-                <th>Qualification</th>
+                <th>Qualification</th> */}
                 <th>Course name</th>
-                <th>Course Start Date</th>
-                <th>PC / Laptop</th> */}
-
+                {/* <th>Course Start Date</th> */}
+                {/* <th>PC / Laptop</th> */}
               </tr>
             </thead>
             <tbody>
@@ -83,21 +82,22 @@ console.log(data,"data")
                 data?.map((user, index) => {
 
                   return <tr>
-                    <td><img src={user.image} /></td>
+                    {/* <td><img src={user.image} /></td> */}
 
                     <td>{user.name}</td>
-                    {/* <td>{user.surname}</td>
-                    <td>{user.lastname}</td>
+                   <td>{user.surname}</td>
+                    {/* <td>{user.lastname}</td>
                     <td>{user.dob}</td>
-                    <td>{user.gender}</td>
+                    <td>{user.gender}</td> */}
                     <td>{user.contact_number}</td>
-                    <td>{user.whatsapp_number}</td>
-                    <td>{user.father_contactnumber}</td>
-                    <td>{user.adress}</td>
-                    <td>{user.qualification}</td>
+                    {/* <td>{user.whatsapp_number}</td>
+                    <td>{user.father_contactnumber}</td> */}
+                    {/* <td>{user.adress}</td> */}
+                    {/* <td>{user.qualification}</td> */}
                     <td>{user.course_name}</td>
-                    <td>{user.course_start_date}</td>
-                    <td>{user.pc_laptop}</td> */}
+                    {/* <td>{user.course_start_date}</td> */}
+                    {/* <td>{user.pc_laptop}</td>  */}
+                    <td><Link to={`/view_student/${user._id}`}><Button>ViewStudent</Button></Link></td>
                     <td><Link to={`/update_student/${user._id}`}><Button>Update</Button></Link></td>
                     <td><Button onClick={(e) => handledelete(user._id, e)}>Delete</Button></td>
                   </tr>

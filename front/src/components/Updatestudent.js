@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Sidebar from "./Sidebar";
@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 
 function Updatestudent() {
 
+    const navigate = useNavigate();
     const id = useParams();
     console.log(id);
 
@@ -33,7 +34,7 @@ function Updatestudent() {
 
     useEffect(() => {
 
-        axios.get('http://localhost:5000/student/'+id)
+        axios.get('http://localhost:5000/student/' + id.id)
             .then(res => setData(res.data.data))
             .catch(function (error) {
                 console.log(error);
@@ -41,31 +42,40 @@ function Updatestudent() {
 
     }, []);
 
-    // const btnupdate = (id) => {
-    //     axios.post('http://localhost:5000/student/'+id, {
-    //         name: name,
-    //         surname: surname,
-    //         lastname: lastname,
-    //         dob: dob,
-    //         gender: gender,
-    //         contact_number: contact_no,
-    //         whatsapp_number: whatsapp_number,
-    //         father_contactnumber: father_contactnumber,
-    //         adress: adress,
-    //         qualification: qualification,
-    //         image: image,
-    //         course_name: course_name,
-    //         course_start_date: course_start_date,
-    //         pc_laptop: pc_laptop,
-    //         installment: installment
+    const btnupdate = (id) => {
+        axios.post('http://localhost:5000/student/' + id, {
+            name: name,
+            surname: surname,
+            lastname: lastname,
+            dob: dob,
+            gender: gender,
+            contact_number: contact_no,
+            whatsapp_number: whatsapp_number,
+            father_contactnumber: father_contactnumber,
+            adress: adress,
+            qualification: qualification,
+            image: image,
+            course_name: course_name,
+            course_start_date: course_start_date,
+            pc_laptop: pc_laptop,
+            installment: installment
 
-    //     }).then(function (response) {
-    //         console.log(response.data);
-    //     }).catch(function (error) {
-    //         console.log(error);
-    //         console.log(3);
-    //     })
-    // }
+        }).then(function (response) {
+            console.log(response.data);
+
+            if (response.data.status === "updated successfully") {
+                setError(response.data.status);
+                navigate(`/view_student/${id}`)
+                // return false;
+              }
+
+        }).catch(function (error) {
+            console.log(error);
+            console.log(3);
+        })
+
+        
+    }
     return (
         <>
 
@@ -80,19 +90,20 @@ function Updatestudent() {
                             <input
                                 type="text"
                                 className="form-control mt-1"
-                                value={data.name}
                                 onChange={(e) => { setname(e.target.value) }}
-                            // placeholder="Enter name"
+                                placeholder="Enter name"
                             />
                             <input
                                 type="text"
                                 className="form-control mt-1"
+                                
                                 onChange={(e) => { setlastname(e.target.value) }}
                                 placeholder="Enter father Name"
                             />
                             <input
                                 type="text"
                                 className="form-control mt-1"
+                                
                                 onChange={(e) => { setsurname(e.target.value) }}
                                 placeholder="Enter Surname"
                             />
@@ -105,6 +116,7 @@ function Updatestudent() {
                                 <label className="col-3 align-content-center">Date of Birth :</label>
                                 <input
                                     type="date"
+                                    
                                     className="form-control mt-1"
                                     onChange={(e) => { setdob(e.target.value) }}
                                 />
@@ -137,6 +149,7 @@ function Updatestudent() {
                             <input
                                 type="text"
                                 maxLength={10}
+                               
                                 className="form-control mt-1"
                                 onChange={(e) => { setcontact_no(e.target.value) }}
                                 placeholder="Contact Number"
@@ -144,6 +157,7 @@ function Updatestudent() {
                             <input
                                 type="text"
                                 maxLength={10}
+                                
                                 className="form-control mt-1"
                                 onChange={(e) => { setwhatsapp_number(e.target.value) }}
                                 placeholder="Whatshapp Number"
@@ -151,6 +165,7 @@ function Updatestudent() {
                             <input
                                 type="text  "
                                 maxLength={10}
+                               
                                 className="form-control mt-1"
                                 onChange={(e) => { setfather_contactnumber(e.target.value) }}
                                 placeholder="Father Contact Number"
@@ -162,6 +177,7 @@ function Updatestudent() {
                             <label className="col-2">Address :</label>
                             <textarea
                                 rows={4}
+                                
                                 className="form-control mt-1"
                                 onChange={(e) => { setadress(e.target.value) }}
                                 placeholder="Enter Your Current Address"
@@ -171,7 +187,7 @@ function Updatestudent() {
                         {/* qaulification */}
                         <div className="form-group mt-3 d-flex gap-3">
                             <label className="col-2 ">Qualification :</label>
-                            <select id="qaulification" className="form-control" onChange={(e) => { setqualification(e.target.value) }}>
+                            <select id="qaulification"  className="form-control" onChange={(e) => { setqualification(e.target.value) }}>
                                 <option value="None">None</option>
                                 <option value="S.S.C.">S.S.C.</option>
                                 <option value="H.S.C." >H.S.C.</option>
@@ -193,7 +209,7 @@ function Updatestudent() {
                         {/* Course name */}
                         <div className="form-group mt-3 d-flex gap-3">
                             <label className="col-2 ">Courses :</label>
-                            <select id="course" className="form-control" onChange={(e) => { setcourse_name(e.target.value) }}>
+                            <select id="course" className="form-control"  onChange={(e) => { setcourse_name(e.target.value) }}>
                                 <option value="CCC">CCC</option>
                                 <option value="Front End Development">Front End Development</option>
                                 <option value="Back End Delelopment" >Back End Delelopment</option>
@@ -209,6 +225,7 @@ function Updatestudent() {
                                 <label className="col-3 align-content-center">Start Date :</label>
                                 <input
                                     type="date"
+                                    
                                     className="form-control mt-1"
                                     onChange={(e) => { setcourse_start_date(e.target.value) }}
                                 />
@@ -224,13 +241,13 @@ function Updatestudent() {
                             </select>
                         </div>
 
-                        {/* <div className="d-grid gap-2 mt-3 col-2">
-                            <Link to="/view_student" onClick={() => btnupdate(id)} className='submit'>
+                        <div className="d-grid gap-2 mt-3 col-2">
+                            <Link onClick={() => btnupdate(id.id)} className='submit'>
                                 <button type="submit" className="btn btn-primary" >
                                     Update
                                 </button>
                             </Link>
-                        </div> */}
+                        </div>
 
                     </div>
                 </form>

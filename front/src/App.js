@@ -13,6 +13,7 @@ import Updatestudent from './components/Updatestudent';
 import AddFaculty from './components/Addfaculty';
 import ViewFaculty from './components/Viewfaculty';
 import Sidebar  from './components/Sidebar';
+import ViewStudent1 from './components/ViewStudent1';
 function App() { 
   return (
     <div className="App">
@@ -37,6 +38,7 @@ function App() {
 
           {/* student  */}
           <Route path='/view_student' element={<ViewStudent />}></Route>
+          <Route path='/view_student/:id' element={<ViewStudent1 />}></Route>
           <Route path='/update_student/:id' element={<Updatestudent />}></Route>
           <Route path='/admission' element={<Admission />}></Route>
           
