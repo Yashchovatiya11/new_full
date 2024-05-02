@@ -3,9 +3,30 @@ import Card from 'react-bootstrap/Card';
 import '../components/Css/Dashboard.css';
 import { Link } from "react-router-dom";
 
+import axios from 'axios';
+// import { useState } from 'react';
+
 // import { Button } from 'react-bootstrap'
 
 function Dashbord() {
+
+    // let [logout_user, setlogout_user] = useState('');
+
+    const btnhandle  = ()  => {
+        axios.post('http://localhost:5000/logout', {
+
+        }).then(function (response) {
+            // handle success
+            console.log(response);
+            if (response.data.status === "succesfully logged out") {
+                alert("success")
+            }
+        }).catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+    }
+    
     return (
         <>
             <div className='dashcol'>
@@ -16,6 +37,13 @@ function Dashbord() {
                     <div className='d-flex  w-25'>
                         <div>
                             <Link className='ps-3 btn btn-dark text-white ' to="/admin">Admin</Link>
+                        </div>
+                        <div>
+                            <Link  className='ps-3 ms-3 btn btn-dark text-white ' onClick={btnhandle} to="/login">
+                                <button  type="submit" className="text-light">
+                                    Logout
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
