@@ -14,6 +14,7 @@ import AddFaculty from './components/Addfaculty';
 import ViewFaculty from './components/Viewfaculty';
 import Sidebar  from './components/Sidebar';
 import ViewStudent1 from './components/ViewStudent1';
+import Add_content from './components/AddContent';
 function App() { 
   return (
     <div className="App">
@@ -32,6 +33,7 @@ function App() {
           {/* courses  */}
           <Route path='/addcourse' element={<AddCourse />}></Route>
           <Route path='/view_course' element={<View_course />}></Route>
+          <Route path='/add_content' element={<Add_content />}></Route>
 
 
           <Route path='/admin' element={<Admin />}></Route>

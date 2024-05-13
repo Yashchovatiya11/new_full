@@ -66,6 +66,7 @@ function ViewFaculty() {
                                         <li class="list-group-item">Salary:<span>{user.salary}</span></li>
                                         <li class="list-group-item">Time :<span>{user.time}</span></li>
                                         <li class="list-group-item"><Button onClick={(e) => handledelete(user._id, e)}>Delete</Button></li>
+                                        {/* <li class="list-group-item"><Link to={`/update_student/${user._id}`}><Button onClick={(e) => handledelete(user._id, e)}>Delete</Button></Link></li> */}
                                     </ul>
                                 </div>
                             </div>

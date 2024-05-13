@@ -4,10 +4,10 @@ var contentSchema = new mongoose.Schema({
     content:{
         type: String
     },
-    // course_id:{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "course"
-    // },
+    course_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "course"
+    },
     // content_idd: {
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: "student"

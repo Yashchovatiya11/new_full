@@ -64,6 +64,7 @@ function Admin() {
                 <ul id='example-collapse-text' className='list-unstyled ps-0 text-start '>
                   <li className=' mt-2 rounded p-2 '><Link to="/addcourse" className=''><BsCircle className='me-3 fs-6'></BsCircle>Add Courses</Link></li>
                   <li className=' mt-2 rounded p-2'><Link to="/view_course" className=''><BsCircle className='me-3 fs-6'></BsCircle>View Courses</Link></li>
+                  <li className=' mt-2 rounded p-2'><Link to="/add_content" className=''><BsCircle className='me-3 fs-6'></BsCircle>Add Content</Link></li>
                 </ul>
               </Collapse>
             </div>

@@ -11,7 +11,6 @@ import { CgArrowLongRight } from "react-icons/cg";
 
 function Login() {
 
-
   const navigate = useNavigate();
 
   let [email, setemail] = useState('');
@@ -20,6 +19,8 @@ function Login() {
 
   const btnhandler = () => {
     console.log(1);
+
+
     axios.post('http://localhost:5000/login', {
 
       email: email,
@@ -80,7 +81,7 @@ function Login() {
 
   return (
     <>
-     
+
       <div className="limiter">
         <div className="container-login100">
           <div className="wrap-login100">
@@ -99,6 +100,9 @@ function Login() {
                   className="input100 mt-1"
                   onChange={(e) => { setemail(e.target.value) }}
                   placeholder="Email"
+                  id='email'
+                  name='email'
+                  autoComplete="email"
                 />
                 <span className="focus-input100"></span>
                 <span className="symbol-input100">
@@ -112,6 +116,9 @@ function Login() {
                   onChange={(e) => { setpassword(e.target.value) }}
                   className="input100 mt-1"
                   placeholder="Password"
+                  name="password"
+                  id="password"
+                  autoComplete="current-password"
                 />
                 <span className="focus-input100"></span>
                 <span className="symbol-input100">
@@ -144,11 +151,11 @@ function Login() {
               </div>
 
               <div className="text-center pt-5">
-              <Link to="/signup">
-                <a className='fw-bold' href="#">
-                  You don't have register? 
-                  <CgArrowLongRight className='ms-3' />
-                </a>
+                <Link to="/signup">
+                  <a className='fw-bold' href="#">
+                    You don't have register?
+                    <CgArrowLongRight className='ms-3' />
+                  </a>
                 </Link>
               </div>
             </form>

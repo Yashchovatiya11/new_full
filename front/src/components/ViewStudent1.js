@@ -52,9 +52,9 @@ function ViewStudent1() {
             <div className='  '>
                 <div className='d-flex justify-content-around'>
                     <h3 className='pt-3 text-center fw-bold mx-auto'> Student Data </h3>
-                    <Link to="/home" className='ms-auto pt-3'>
+                    <Link to="/view_student" className='ms-auto pt-3'>
                         <Button className='text-start btn btn-dark w-100 text-center' >
-                            <span className='fw-bold'>Dashboard</span>
+                            <span className='fw-bold'>Return</span>
                         </Button>
                     </Link>
                 </div>
